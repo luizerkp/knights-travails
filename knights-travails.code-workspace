@@ -1,0 +1,13 @@
+﻿{
+	"folders": [
+		{
+			"path": "../../repos/knights-travails/"
+		}
+  ],
+  "settings": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"]
+  }
+}
