@@ -28,6 +28,7 @@ class Board {
         pathArr.unshift(start);
         return pathArr;
       }
+
       this.nodes.get(curr).forEach((node) => {
         if (!visited.get(node)) {
           visited.set(node, true);
