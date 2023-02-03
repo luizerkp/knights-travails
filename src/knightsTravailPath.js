@@ -11,6 +11,11 @@ const checkInvalidSquares = (start, end) => {
   if (!Array.isArray(start) || !Array.isArray(end)) {
     return true;
   }
+
+  if (start.length === 0 || end.length === 0) {
+    return true;
+  }
+
   const invalid = [...start, ...end].some((value) => {
     if (value > 7 || value < 0 || !Number.isInteger(value)) {
       return true;
@@ -20,6 +25,7 @@ const checkInvalidSquares = (start, end) => {
 
   return invalid;
 };
+
 const shortestPath = (start, end) => {
   if (checkInvalidSquares(start, end)) {
     return "Please use positive interger coordinates that fall within an 8x8 board i.e. [0,0] to [7, 7]";
@@ -38,13 +44,38 @@ const shortestPath = (start, end) => {
       }
     }
   }
-  return board.bfs(`${start[0]},${start[1]}`, `${end[0]},${end[1]}`);
+  return board.breadthFirstSearch(`${start[0]},${start[1]}`, `${end[0]},${end[1]}`);
 };
 
-// TODO: refactor this into it's own function
-const path = shortestPath([3, 3], [4, 3]);
-const moves = path.length - 1;
-console.log(`You made it in ${moves} moves! here is your path: `);
-path.forEach((move) => {
-  console.log(move);
-});
+const getKnightsShortestPath = (start, end) => {
+  const path = shortestPath(start, end);
+  return path;
+};
+
+const displayPath = (pathTextContent) => {
+  const testsContainer = document.querySelector(".tests-container");
+  const resultsDiv = document.createElement("div");
+  resultsDiv.textContent = pathTextContent;
+  return testsContainer.appendChild(resultsDiv);
+};
+
+const printPath = (path) => {
+  // if path is not an array, then it will contain the error message from checkValidSquares
+  if (!Array.isArray(path)) {
+    displayPath(path);
+    return console.log(path);
+  }
+
+  const moves = path.length - 1;
+  const movesMsg = `You made it in ${moves} moves! here is your path: `;
+  displayPath(movesMsg);
+  console.log(movesMsg);
+  path.forEach((move) => {
+    displayPath(move);
+    console.log(move);
+  });
+
+  return moves;
+};
+
+export { getKnightsShortestPath, printPath };

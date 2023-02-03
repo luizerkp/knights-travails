@@ -11,7 +11,7 @@ class Board {
     this.nodes.get(`${x1},${y1}`).push(`${x2},${y2}`);
   }
 
-  bfs(start, end) {
+  breadthFirstSearch(start, end) {
     const queue = [];
     const visited = new Map();
     const path = new Map();
