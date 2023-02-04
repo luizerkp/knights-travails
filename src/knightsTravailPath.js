@@ -1,11 +1,5 @@
-/*
-  have to add the extendsion to run in terminal using node:
-    Updated "import/extensions" on .eslintrc.json to always require extension
-    updated package.json with "type": "module"
-    This is to avoid "Cannot find module" error when using node.
-*/
-import Board from "./gameBoard.js";
-import knightPossibleMoves from "./knightPossibleMoves.js";
+import Board from "./gameBoard";
+import knightPossibleMoves from "./knightPossibleMoves";
 
 const checkInvalidSquares = (start, end) => {
   if (!Array.isArray(start) || !Array.isArray(end)) {

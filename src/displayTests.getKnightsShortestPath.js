@@ -11,7 +11,7 @@ const displaySeparation = () => {
   div.classList.add("separator");
   return testsContainer.appendChild(div);
 };
-const testGetKnightsShortestPath = (knightsShortestPathFunc, printPathFunc) => {
+const displayTestsGetKnightsShortestPath = (knightsShortestPathFunc, printPathFunc) => {
   const errMsg = "Please use positive interger coordinates that fall within an 8x8 board i.e. [0,0] to [7, 7]";
   const test1 = [
     [0, 0],
@@ -129,4 +129,4 @@ const testGetKnightsShortestPath = (knightsShortestPathFunc, printPathFunc) => {
   });
 };
 
-export default testGetKnightsShortestPath;
+export default displayTestsGetKnightsShortestPath;
